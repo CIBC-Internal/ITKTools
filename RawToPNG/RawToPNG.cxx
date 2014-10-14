@@ -73,9 +73,8 @@ main(int argc, char *argv[])
   writer->SetFileName( outputImagePath );
 
   writer->SetInput( extract->GetOutput() );
-//  writer->SetInput( reader->GetOutput() );
-//  writer->SetUseCompression( true );
   writer->UseCompressionOn();
+  writer->SetNumberOfStreamDivisions(400);
   
   try
   {
