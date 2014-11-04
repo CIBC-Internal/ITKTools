@@ -90,10 +90,6 @@ main(int argc, char *argv[] )
     std::cout << "Read " << tmpFilePath.string() << std::endl;
 
     // Read images
-//    ImageReaderType::Pointer reader = ImageReaderType::New();
-//    // create a ImageIO
-//    ImageIOType::Pointer pngImageIO = ImageIOType::New();
-//    reader->SetImageIO(pngImageIO);
     reader->SetFileName(tmpFilePath.string());
 
     try
@@ -116,9 +112,6 @@ main(int argc, char *argv[] )
 
   // Write the output image
   WriterType::Pointer writer = WriterType::New();
-//  // create a ImageIO
-//  ImageIOType::Pointer pngImageIO = ImageIOType::New();
-//  writer->SetImageIO(pngImageIO);
   writer->SetNumberOfStreamDivisions(400);
   writer->SetFileName( outputFilePath.string() );
   writer->SetInput( grayFilter->GetOutput() );
