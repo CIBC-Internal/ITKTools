@@ -15,13 +15,6 @@
 
 namespace bfs = boost::filesystem;
 
-//bfs::path
-//formatTmpFileNames(const bfs::path& tmpPath, const unsigned int index)
-//{
-//  std::ostringstream tmpOutputFormat;
-//  tmpOutputFormat << "row_" << std::setfill('0') << std::setw(3) << index << ".png";
-//  return bfs::path( tmpPath / tmpOutputFormat.str().c_str() );
-//}
 
 int
 main(int argc, char *argv[] )
@@ -40,7 +33,7 @@ main(int argc, char *argv[] )
 
   bfs::path inputPath(argv[1]);
   bfs::path tmpPath(argv[2]);
-  //  bfs::path tmpPath( bfs::current_path() / "tmp" );
+
   if (! bfs::exists(tmpPath) )
   {
     if (! bfs::create_directory(tmpPath) )
