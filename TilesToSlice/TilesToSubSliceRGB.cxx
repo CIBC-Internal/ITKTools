@@ -122,13 +122,6 @@ main(int argc, char *argv[] )
                       << "_Y" << std::setfill('0') << std::setw(3) << y
                       << ".png";
       bfs::path inputFile = inputPath / inputFileFormat.str();
-std::cerr << omp_get_thread_num() << ": Read " << inputFile.string() << std::endl;
-
-//      // Read images
-//      ImageReaderType::Pointer reader = ImageReaderType::New();
-//      // create a ImageIO
-//      ImageIOType::Pointer pngImageIO = ImageIOType::New();
-//      reader->SetImageIO(pngImageIO);
       reader->SetFileName( inputFile.string() );
 
       try
@@ -157,7 +150,6 @@ std::cerr << omp_get_thread_num() << ": Read " << inputFile.string() << std::end
     // Write the output image
     WriterType::Pointer writer = WriterType::New();
     // create a ImageIO
-//    ImageIOType::Pointer pngImageIO = ImageIOType::New();
     writer->SetImageIO(pngImageIO);
     writer->SetNumberOfStreamDivisions(300);
     writer->SetInput( tileFilter->GetOutput() );
