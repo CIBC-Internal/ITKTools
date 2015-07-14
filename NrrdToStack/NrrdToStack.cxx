@@ -43,9 +43,6 @@ main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
-//std::cerr << nrrdImageIO->GetNumberOfDimensions() << ", " << nrrdImageIO->GetPixelTypeAsString(nrrdImageIO->GetPixelType() ) << std::endl;
-//std::cerr << reader->GetOutput()->GetLargestPossibleRegion() << std::endl;
-
   InputImageType::RegionType region = reader->GetOutput()->GetLargestPossibleRegion();
   InputImageType::IndexType start = region.GetIndex();
   InputImageType::SizeType size  = region.GetSize();
@@ -55,12 +52,9 @@ main(int argc, char *argv[])
     std::cerr << "Error: expecting 3D data." << std::endl;
     return EXIT_FAILURE;
   }
-std::cerr << start[0] << ", " << start[1] << ", " << start[2] << std::endl;
-std::cerr << size[0] << ", " << size[1] << ", " << size[2] << std::endl;
 
   unsigned int firstSlice = start[ 2 ];
   unsigned int lastSlice = start[ 2 ] + size[ 2 ] - 1;
-std::cerr << firstSlice << ", " << lastSlice << std::endl;
 
   typedef itk::ImageSeriesWriter< InputImageType, OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
