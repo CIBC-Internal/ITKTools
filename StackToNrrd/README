@@ -1,0 +1,1 @@
+Run as: ./StackToNrrd DDP_Seg_%01d.png 1 10 test.nrrd
