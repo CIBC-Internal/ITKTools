@@ -7,3 +7,6 @@ include(${ITK_USE_FILE})
 
 add_executable(StackToNrrd StackToNrrd.cxx)
 target_link_libraries(StackToNrrd ${ITK_LIBRARIES})
+
+add_executable(StackToStack StackToStack.cxx)
+target_link_libraries(StackToStack ${ITK_LIBRARIES})
